@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   
   title = 'giphy-search';
   items = [];
+  animatedgif = "";
 
   constructor(private giphy:GiphyService) {
   }
