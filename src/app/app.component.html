@@ -1,16 +1,30 @@
-<h1>Welcome to {{title}}</h1>
+<h1>Welcome to {{ title }}</h1>
 
 <div class="search-box">
+  <input
+    class="input-field"
+    size="35"
+    type="text"
+    placeholder="Search.."
+    [(ngModel)]="searchfield"
+  />
 
-  <input class ="input-field" size="35" type="text" placeholder="Search.." [(ngModel)]="searchfield">
-
-  <button class="btn btn-primary" (click)="giphySearch(searchfield)">search</button>
-
+  <button class="btn btn-primary" (click)="giphySearch(searchfield)">
+    Search
+  </button>
 </div>
 
-<div class="outer">
-  <div *ngFor="let item of items">
-    <img src="{{item.images.fixed_height.url}}">
+<div class="outer-outer">
+  <div class="outer">
+    <div *ngFor="let item of items" class="inner">
+      <img
+        src="{{ item.images['480w_still'].url }}"
+        (click)="clickgif(item)"
+        class="imagegif"
+      />
+    </div>
+  </div>
+  <div>
+    <img src="{{ animatedgif }}" />
   </div>
 </div>
-
